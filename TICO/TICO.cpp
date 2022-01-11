@@ -320,10 +320,7 @@ int getPlayerPlay(Game game)
 	return selectedNumber;
 }
 
-int main()
-{
-	// Startup random
-	srand(time(NULL));
+void playGame() {
 	// Startup game
 	Game game;
 	// The game hasn't been won or tied.
@@ -331,38 +328,40 @@ int main()
 	// While the game hasn't been won or tied
 	// Show a default system message (signaling the game is playing)
 	game.player = 1; // Machine goes first
-	
+
 	while (!hasWon) {
 		// Show the table
 		showTable(game);
 		switch (game.player)
 		{
 		case 1:
-			{
-				// Player goes
-				systemMessage("Hora de jugar!", -1);
-				int playerPlay = getPlayerPlay(game);
-				makePlay(&game, playerPlay);
-			}
-			break;
+		{
+			// Player goes
+			systemMessage("Hora de jugar!", -1);
+			int playerPlay = getPlayerPlay(game);
+			makePlay(&game, playerPlay);
+		}
+		break;
 		case 2:
-			{
-				// Machine goes
-				systemMessage("Pensando   ", -1);
-				Sleep(250);
-				systemMessage("Pensando.  ", -1);
-				Sleep(250);
-				systemMessage("Pensando.. ", -1);
-				Sleep(250);
-				systemMessage("Pensando...", -1);
-				Sleep(250);
-				int machinePlay = masterMachine(game);
-				makePlay(&game, machinePlay);
-			}
-			break;
+		{
+			// Machine goes
+			setConsoleColor(4, 0);
+			systemMessage("Pensando   ", -1);
+			Sleep(250);
+			systemMessage("Pensando.  ", -1);
+			Sleep(250);
+			systemMessage("Pensando.. ", -1);
+			Sleep(250);
+			systemMessage("Pensando...", -1);
+			Sleep(250);
+			setConsoleColor(15, 0);
+			int machinePlay = masterMachine(game);
+			makePlay(&game, machinePlay);
+		}
+		break;
 		}
 		// Update the win condition.
-		hasWon = isWinner(game);		
+		hasWon = isWinner(game);
 	}
 	// Show the last table state
 	showTable(game);
@@ -371,16 +370,35 @@ int main()
 	switch (hasWon)
 	{
 	case -1:
-		systemMessage("Fue un empate");
+		systemMessage(" Fue un empate");
 		break;
 	case 1:
-		systemMessage("Ha ganado el jugador de X");
+		systemMessage(" Ha ganado el jugador de X");
 		break;
 	case 2:
-		systemMessage("Ha ganado el jugador de O");
+		systemMessage(" Ha ganado el jugador de O");
 		break;
 	default:
-		systemMessage("Yo no se que te paso");
-		systemMessage("Coji un pote y te eploto");
+		systemMessage(" Yo no se que te paso");
+		systemMessage(" Coji un pote y te eploto");
+	}
+}
+
+int main()
+{
+	// Startup random
+	srand(time(NULL));
+
+	while (true) {
+		playGame();
+		systemMessage(" Quiere jugar otra vez? S/N", 1);
+		string usrin;
+		cin >> usrin;
+		if (usrin == "N") {
+			break;
+		}
+		else if (usrin == "S") {
+			continue;
+		}
 	}
 }
