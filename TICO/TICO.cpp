@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Represents a game table and turn
 struct Game
 {
 	int table[3][3] = { {0,0,0},{0,0,0},{0,0,0} };
@@ -16,12 +17,14 @@ void togglePlayer(Game* game) {
 	game->player = (game->player == 1) ? 2 : 1;
 }
 
+// Moves the console cursor position to an x, y coordinate
 void setCursorPosition(int x, int y) {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	COORD coord = { x, y };
 	SetConsoleCursorPosition(hConsole, coord);
 }
 
+// Translates a player number into a char
 char playToChar(int player) {
 	char exitChar;
 	switch (player)

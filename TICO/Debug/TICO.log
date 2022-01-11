@@ -1,4 +1,4 @@
 ﻿  TICO.cpp
-C:\Users\kirot\source\repos\Tic-Tac-Toe\TICO\TICO.cpp(18,18): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\kirot\source\repos\Tic-Tac-Toe\TICO\TICO.cpp(18,21): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\kirot\source\repos\Tic-Tac-Toe\TICO\TICO.cpp(21,18): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\kirot\source\repos\Tic-Tac-Toe\TICO\TICO.cpp(21,21): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
   TICO.vcxproj -> C:\Users\kirot\source\repos\Tic-Tac-Toe\Debug\TICO.exe
