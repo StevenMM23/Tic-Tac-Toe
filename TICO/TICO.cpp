@@ -116,5 +116,3 @@ int main()
 	makePlay(&game, 6);
 	showTable(game);
 }
-
-
