@@ -7,7 +7,7 @@ struct game
 {
 	char table[3][3] = { {'1','2','3'},{'4','5','6'},{'7','8','9'} };
 	int player = 1;
-	int position =0;
+	int position = 0;
 };
 
 bool isWinner()
@@ -35,38 +35,53 @@ bool isWinner()
 	return winner;
 }
 
-bool isFill()
+bool isFill(game& game)
 {
-	game* evaluate = new game;
+	
 	bool fill = true;
 
-	for(int i = 0; i < 3; i++)
+	for (auto& i : game.table)
 	{
 		for(int j = 0; j < 3; j ++)
 		{
-			if (evaluate->table[i][j] != 'X' || evaluate->table[i][j] != 'O') fill = false;
+			if (i[j] != 'X' || i[j] != 'O') fill = false;
 		}
 	}
 
 	return fill;
 }
-void showTable()
+void showTable(game& game)
 {
-	game* game = new struct game;
 	cout << "       |       |      \n";
-	cout << "   " << game->table[0][0] << "   |   "<<game->table[0][1]<<"   |   "<<game->table[0][2]<<"\n";
+	cout << "   " << game.table[0][0] << "   |   "<<game.table[0][1]<<"   |   "<<game.table[0][2]<<"\n";
 	cout << "_______|_______|_______\n";
 	cout << "       |       |      \n";
-	cout << "   " << game->table[1][0] << "   |   " << game->table[1][1] << "   |   " << game->table[1][2]<<"\n";
+	cout << "   " << game.table[1][0] << "   |   " << game.table[1][1] << "   |   " << game.table[1][2]<<"\n";
 	cout << "_______|_______|_______\n";
 	cout << "       |       |      \n";
-	cout << "   " << game->table[2][0] << "   |   " << game->table[2][1] << "   |   " << game->table[2][2] << "\n";
+	cout << "   " << game.table[2][0] << "   |   " << game.table[2][1] << "   |   " << game.table[2][2] << "\n";
 	cout << "       |       |      \n";
 
 }
+
+void placeMarker(game& game, int slot)
+{
+	int row = slot / 3;
+	int col;
+	if (slot % 3 == 0)
+	{
+		row = row - 1;
+		col = 2;
+	}
+	else col = (slot % 3) - 1;
+	game.table[row][col] = 'X';
+}
 int main()
 {
-	showTable();
+	game* game = new::game;
+	placeMarker(*game , 5);
+	showTable(*game);
+	
 }
 
 
