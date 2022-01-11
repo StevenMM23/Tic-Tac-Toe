@@ -1,3 +1,10 @@
+//Integrantes:
+//Jerry Riveras - 1089317
+//Steven Martínez - 1101817
+//Alex Bujosa - 1098913
+//Sebastian Henriquez - 1101507
+//Ismael Dicent - 
+
 #include <iostream>
 #include <string>
 #include <windows.h>
@@ -399,7 +406,7 @@ int main()
 		if (usrin == "N") {
 			break;
 		}
-		else if (usrin == "S") {
+		if (usrin == "S") {
 			continue;
 		}
 	}
