@@ -337,7 +337,9 @@ void playGame() {
 		case 1:
 		{
 			// Player goes
+			setConsoleColor(2, 0);
 			systemMessage("Hora de jugar!", -1);
+			setConsoleColor(15, 0);
 			int playerPlay = getPlayerPlay(game);
 			makePlay(&game, playerPlay);
 		}
