@@ -1,4 +1,5 @@
 ﻿  TICO.cpp
-C:\Users\kirot\source\repos\Tic-Tac-Toe\TICO\TICO.cpp(21,18): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
-C:\Users\kirot\source\repos\Tic-Tac-Toe\TICO\TICO.cpp(21,21): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\kirot\source\repos\Tic-Tac-Toe\TICO\TICO.cpp(25,18): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\kirot\source\repos\Tic-Tac-Toe\TICO\TICO.cpp(25,21): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\kirot\source\repos\Tic-Tac-Toe\TICO\TICO.cpp(326,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   TICO.vcxproj -> C:\Users\kirot\source\repos\Tic-Tac-Toe\Debug\TICO.exe
