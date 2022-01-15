@@ -58,6 +58,7 @@ char playToChar(int player) {
 	return exitChar;
 }
 
+//Determinate if there is free to play
 vector<int> getValidSpaces(Game game)
 {
 	vector<int> validSpaces;
@@ -152,12 +153,6 @@ bool makePlay(Game* game, int slot)
 	return playPossible;
 }
 
-int selectRandomSpace(Game game)
-{
-	vector<int> validSpaces = getValidSpaces(game);
-	int randomIndex = rand() % validSpaces.size();
-	return validSpaces[randomIndex];
-}
 
 // returns true if the tables are exactly equal
 bool areTablesEqual(int firstTable[3][3], int secondTable[3][3]) {
@@ -171,16 +166,6 @@ bool areTablesEqual(int firstTable[3][3], int secondTable[3][3]) {
 		}
 	}
 	return true;
-}
-
-void copyTable(int fromTable[3][3], int toTable[3][3]) {
-	for (int y = 0; y < 3; y++)
-	{
-		for (int x = 0; x < 3; x++)
-		{
-			toTable[y][x] = fromTable[y][x];
-		}
-	}
 }
 
 int easyMachine(Game game) {
@@ -334,7 +319,7 @@ void playGame() {
 	int hasWon = 0;
 	// While the game hasn't been won or tied
 	// Show a default system message (signaling the game is playing)
-	game.player = 1; // Machine goes first
+	game.player = 1; // The Player goes first
 
 	while (!hasWon) {
 		// Show the table
